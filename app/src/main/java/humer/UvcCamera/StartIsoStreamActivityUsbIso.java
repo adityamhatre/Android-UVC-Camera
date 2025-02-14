@@ -23,6 +23,7 @@ package humer.UvcCamera;
 
 import android.app.Activity;
 
+import android.app.AlertDialog;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -81,7 +82,6 @@ import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import com.crowdfire.cfalertdialog.CFAlertDialog;
 import com.sample.timelapse.MJPEGGenerator ;
 
 import humer.UvcCamera.JNA_I_LibUsb.JNA_I_LibUsb;
@@ -885,11 +885,11 @@ public class StartIsoStreamActivityUsbIso extends Activity {
         popup.inflate(R.menu.iso_stream_resolution_frameinterval);
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             public boolean onMenuItemClick(MenuItem item) {
-                CFAlertDialog.Builder builder;
+                AlertDialog.Builder builder;
                 switch (item.getItemId()) {
                     case R.id.resolution:
-                        builder = new CFAlertDialog.Builder(StartIsoStreamActivityUsbIso.this);
-                        builder.setDialogStyle(CFAlertDialog.CFAlertStyle.ALERT);
+                        builder = new AlertDialog.Builder(StartIsoStreamActivityUsbIso.this);
+//                        builder.setDialogStyle(AlertDialog.CFAlertStyle.ALERT);
                         builder.setTitle("Select your Resolution");
                         builder.setMessage("Current Resolution: " + imageWidth + "x" + imageHeight);
                         int [] [] resolutions;
@@ -925,8 +925,8 @@ public class StartIsoStreamActivityUsbIso extends Activity {
                         int [] intervals;
                         if (videoformat.equals("MJPEG")) intervals = iuvc_descriptor.findDifferentFrameIntervals(true, new int [] {imageWidth, imageHeight});
                         else intervals = iuvc_descriptor.findDifferentFrameIntervals(false, new int [] {imageWidth, imageHeight});
-                        builder = new CFAlertDialog.Builder(StartIsoStreamActivityUsbIso.this);
-                        builder.setDialogStyle(CFAlertDialog.CFAlertStyle.ALERT);
+                        builder = new AlertDialog.Builder(StartIsoStreamActivityUsbIso.this);
+//                        builder.setDialogStyle(AlertDialog.CFAlertStyle.ALERT);
                         builder.setTitle("Select your FrameInterval");
                         builder.setMessage("Current Interval: " + (10000000 / camFrameInterval) + " Frames per Second");
                         String [] intervalString = new String [intervals.length];

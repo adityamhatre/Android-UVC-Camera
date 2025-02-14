@@ -24,6 +24,7 @@ This Repository is provided "as is", without warranties of any kind.
 package humer.UvcCamera;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
@@ -59,14 +60,12 @@ import android.widget.Button;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.crowdfire.cfalertdialog.CFAlertDialog;
-import com.crowdfire.cfalertdialog.views.CFPushButton;
 import com.serenegiant.usb.IFrameCallback;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
-import com.tomer.fadingtextview.FadingTextView;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -238,8 +237,8 @@ public class SetUpTheUsbDeviceUvc extends Activity {
     private CountDownLatch latch;
     private boolean automaticStart;
     private boolean highQualityStreamSucessful;
-    private CFAlertDialog percentageBuilder;
-    private CFAlertDialog percentageBuilder2;
+    private AlertDialog percentageBuilder;
+    private AlertDialog percentageBuilder2;
     private int number = 0;
     private boolean thorthCTLfailed;
     private boolean l1ibusbAutoRunning;
@@ -731,7 +730,7 @@ public class SetUpTheUsbDeviceUvc extends Activity {
 
         //if (bulkMode) libUsb = false;
 
-        log("setUpWithUvcSettings pressed;\n");
+        log("setUpWithUvcSettings pressed;uvc;\n");
         if (camDevice == null) {
             runOnUiThread(new Runnable() {
                 @Override
@@ -1386,14 +1385,14 @@ public class SetUpTheUsbDeviceUvc extends Activity {
             if(!isochronous) {
                 //displayMessage("Camera not supported");
                 log("No Isochronous Camera");
-                CFAlertDialog alertDialog;
-                CFAlertDialog.Builder builder = new CFAlertDialog.Builder(this);
+                AlertDialog alertDialog;
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 LayoutInflater li = LayoutInflater.from(this);
                 View setup_auto_manual_view = li.inflate(R.layout.set_up_the_device_manual_automatic, null);
-                builder.setHeaderView(setup_auto_manual_view);
-                builder.setDialogStyle(CFAlertDialog.CFAlertStyle.ALERT);
+//                builder.setHeaderView(setup_auto_manual_view);
+//                builder.setDialogStyle(AlertDialog.CFAlertStyle.ALERT);
                 alertDialog = builder.show();
-                CFPushButton automatic = setup_auto_manual_view.findViewById(R.id.automatic);
+                Button automatic = setup_auto_manual_view.findViewById(R.id.automatic);
                 automatic.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -1412,7 +1411,7 @@ public class SetUpTheUsbDeviceUvc extends Activity {
                         alertDialog.dismiss();
                     }
                 });
-                CFPushButton manual = setup_auto_manual_view.findViewById(R.id.manual);
+                Button manual = setup_auto_manual_view.findViewById(R.id.manual);
                 manual.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -1443,14 +1442,15 @@ public class SetUpTheUsbDeviceUvc extends Activity {
                 });
 
             } else {
-                CFAlertDialog alertDialog;
-                CFAlertDialog.Builder builder = new CFAlertDialog.Builder(this);
+                AlertDialog alertDialog;
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 LayoutInflater li = LayoutInflater.from(this);
                 View setup_auto_manual_view = li.inflate(R.layout.set_up_the_device_manual_automatic, null);
-                builder.setHeaderView(setup_auto_manual_view);
-                builder.setDialogStyle(CFAlertDialog.CFAlertStyle.ALERT);
-                alertDialog = builder.show();
-                CFPushButton automatic = setup_auto_manual_view.findViewById(R.id.automatic);
+                builder.setView(setup_auto_manual_view);
+//                builder.setDialogStyle(AlertDialog.CFAlertStyle.ALERT);
+                alertDialog = builder.create();
+                alertDialog.show();
+                Button automatic = setup_auto_manual_view.findViewById(R.id.automatic);
                 automatic.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -1468,7 +1468,7 @@ public class SetUpTheUsbDeviceUvc extends Activity {
                         alertDialog.dismiss();
                     }
                 });
-                CFPushButton manual = setup_auto_manual_view.findViewById(R.id.manual);
+                Button manual = setup_auto_manual_view.findViewById(R.id.manual);
                 manual.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -1526,15 +1526,15 @@ public class SetUpTheUsbDeviceUvc extends Activity {
         byte[] a = camDeviceConnection.getRawDescriptors();
         ByteBuffer uvcData = ByteBuffer.wrap(a);
         uvc_descriptor = new UVC_Descriptor(uvcData);
-        CFAlertDialog alertDialog;
-        CFAlertDialog.Builder builder = new CFAlertDialog.Builder(this);
+        AlertDialog alertDialog;
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater li = LayoutInflater.from(this);
         View setup_auto_manual_view = li.inflate(R.layout.set_up_the_device_move_to_native, null);
-        builder.setHeaderView(setup_auto_manual_view);
-        builder.setDialogStyle(CFAlertDialog.CFAlertStyle.ALERT);
+//        builder.setHeaderView(setup_auto_manual_view);
+//        builder.setDialogStyle(AlertDialog.CFAlertStyle.ALERT);
         libUsb = true;
         alertDialog = builder.show();
-        CFPushButton manual = setup_auto_manual_view.findViewById(R.id.native_Only_Manual);
+        Button manual = setup_auto_manual_view.findViewById(R.id.native_Only_Manual);
         manual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -1719,12 +1719,10 @@ public class SetUpTheUsbDeviceUvc extends Activity {
                             tv.setVisibility(View.GONE);
                             ConstraintLayout fadingTextView = (ConstraintLayout) findViewById(R.id.fadingTextViewLayout);
                             fadingTextView.setVisibility(View.VISIBLE);
-                            FadingTextView FTV = (FadingTextView) findViewById(R.id.fadingTextView);
-                            FTV.setTimeout(500, MILLISECONDS);
+                            TextView FTV = (TextView) findViewById(R.id.fadingTextView);
                             FTV.setVisibility(View.VISIBLE);
                             String[] texts = {"seconds counting","...."};
-                            FTV.setTexts(texts);
-                            FTV.forceRefresh();
+                            FTV.setText("text here aditya");
                         }
                     });
                     try {
@@ -1815,7 +1813,7 @@ public class SetUpTheUsbDeviceUvc extends Activity {
                         ConstraintLayout fadingTextView = (ConstraintLayout) findViewById(R.id.fadingTextViewLayout);
                         fadingTextView.setVisibility(View.GONE);
                         fadingTextView.setVisibility(View.INVISIBLE);
-                        FadingTextView FTV = (FadingTextView) findViewById(R.id.fadingTextView);
+                        TextView FTV = (TextView) findViewById(R.id.fadingTextView);
                         FTV.setVisibility(View.GONE);
                         FTV.setVisibility(View.INVISIBLE);
                     }

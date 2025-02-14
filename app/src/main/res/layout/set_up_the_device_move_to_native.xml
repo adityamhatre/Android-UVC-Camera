@@ -117,7 +117,7 @@
 
 
 
-            <com.crowdfire.cfalertdialog.views.CFPushButton
+            <Button
                 android:id="@+id/native_Only_Manual"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

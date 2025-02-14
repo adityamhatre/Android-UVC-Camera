@@ -147,20 +147,12 @@ dependencies {
     //FabSpeedDial Button
     implementation 'io.github.yavski:fab-speed-dial:1.0.7'
 
-    //AlertDialog
-    implementation 'com.crowdfire.cfalertdialog:cfalertdialog:1.1.0'
-
     //JNA
     implementation 'net.java.dev.jna:jna:5.14.0@aar'
 
     // @ RequiresApi
     implementation 'com.android.support:support-annotations:28.0.0'
 
-    // TextInputLayout
-    implementation 'com.rafakob:floatingedittext:1.0.5'
-
-    //fading TextView
-    implementation 'com.tomer:fadingtextview:2.6'
 
     // Drop Down Menu
     implementation 'com.github.zzz40500:AndroidSweetSheet:1.1.0'

@@ -279,7 +279,7 @@
                 app:layout_constraintTop_toBottomOf="@id/PacketsPerReq"
                 />
 
-            <com.rafakob.floatingedittext.FloatingEditText
+            <EditText
                 android:id="@+id/alt"
                 android:layout_width="0dp"
                 android:layout_height="55dp"
@@ -290,9 +290,9 @@
                 android:inputType="number"
                 app:hintAnimationEnabled="true"
                 >
-            </com.rafakob.floatingedittext.FloatingEditText>
+            </EditText>
 
-            <com.rafakob.floatingedittext.FloatingEditText
+            <EditText
                 android:id="@+id/maxP"
                 android:layout_width="0dp"
                 android:layout_height="55dp"
@@ -303,9 +303,9 @@
                 android:inputType="number"
                 app:hintAnimationEnabled="true"
                 >
-            </com.rafakob.floatingedittext.FloatingEditText>
+            </EditText>
 
-            <com.rafakob.floatingedittext.FloatingEditText
+            <EditText
                 android:id="@+id/Format"
                 android:layout_width="0dp"
                 android:layout_height="55dp"
@@ -316,9 +316,9 @@
                 android:hint="1 or 2 or 3 ?"
                 android:inputType="number"
                 >
-            </com.rafakob.floatingedittext.FloatingEditText>
+            </EditText>
 
-            <com.rafakob.floatingedittext.FloatingEditText
+            <EditText
                 android:id="@+id/Video"
                 android:layout_width="0dp"
                 android:layout_height="55dp"
@@ -329,9 +329,9 @@
                 android:focusable="false"
                 android:inputType="none"
                 android:hint="MJPEG or YUY2">
-            </com.rafakob.floatingedittext.FloatingEditText>
+            </EditText>
 
-            <com.rafakob.floatingedittext.FloatingEditText
+            <EditText
                 android:id="@+id/Frame"
                 android:layout_width="0dp"
                 android:layout_height="55dp"
@@ -342,9 +342,9 @@
                 android:hint="between 1 and 10 ?"
                 android:inputType="number">
 
-            </com.rafakob.floatingedittext.FloatingEditText>
+            </EditText>
 
-            <com.rafakob.floatingedittext.FloatingEditText
+            <EditText
                 android:id="@+id/Imagewi"
                 android:layout_width="0dp"
                 android:layout_height="55dp"
@@ -355,9 +355,9 @@
                 android:hint="640 or 1920"
                 android:inputType="number">
 
-            </com.rafakob.floatingedittext.FloatingEditText>
+            </EditText>
 
-            <com.rafakob.floatingedittext.FloatingEditText
+            <EditText
                 android:id="@+id/ImageHei"
                 android:layout_width="0dp"
                 android:layout_height="55dp"
@@ -368,9 +368,9 @@
                 android:hint="480 or 1080 or ..."
                 android:inputType="number"
                 >
-            </com.rafakob.floatingedittext.FloatingEditText>
+            </EditText>
 
-            <com.rafakob.floatingedittext.FloatingEditText
+            <EditText
                 android:id="@+id/frameInt"
                 android:layout_width="0dp"
                 android:layout_height="55dp"
@@ -381,9 +381,9 @@
                 android:hint="333333 = 30 fps"
                 android:inputType="number"
                 >
-            </com.rafakob.floatingedittext.FloatingEditText>
+            </EditText>
 
-            <com.rafakob.floatingedittext.FloatingEditText
+            <EditText
                 android:id="@+id/PacketsPer"
                 android:layout_width="0dp"
                 android:layout_height="55dp"
@@ -393,9 +393,9 @@
                 app:hintAnimationEnabled="true"
                 android:hint="4 or 8 or 64 ?"
                 android:inputType="number">
-            </com.rafakob.floatingedittext.FloatingEditText>
+            </EditText>
 
-            <com.rafakob.floatingedittext.FloatingEditText
+            <EditText
                 android:id="@+id/ActiveUr"
                 android:layout_width="0dp"
                 android:layout_height="55dp"
@@ -405,7 +405,7 @@
                 app:hintAnimationEnabled="true"
                 android:hint="1 or 8 or 124 ?"
                 android:inputType="number">
-            </com.rafakob.floatingedittext.FloatingEditText>
+            </EditText>
 
 
         </android.support.constraint.ConstraintLayout>

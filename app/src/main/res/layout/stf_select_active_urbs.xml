@@ -94,7 +94,7 @@
 
 
 
-            <com.crowdfire.cfalertdialog.views.CFPushButton
+            <Button
                 android:id="@+id/uone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
                 app:layout_constraintRight_toRightOf="@id/guideline"
                 app:layout_constraintTop_toTopOf="@id/guidelinehor1" />
 
-            <com.crowdfire.cfalertdialog.views.CFPushButton
+            <Button
                 android:id="@+id/utwo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
                 app:layout_constraintRight_toRightOf="@id/guideline2"
                 app:layout_constraintTop_toTopOf="@id/guidelinehor1" />
 
-            <com.crowdfire.cfalertdialog.views.CFPushButton
+            <Button
                 android:id="@+id/uthree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
                 app:layout_constraintTop_toTopOf="@id/guidelinehor2" />
 
 
-            <com.crowdfire.cfalertdialog.views.CFPushButton
+            <Button
                 android:id="@+id/ufour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -165,7 +165,7 @@
                 app:layout_constraintRight_toRightOf="@id/guideline2"
                 app:layout_constraintTop_toTopOf="@id/guidelinehor2" />
 
-            <com.crowdfire.cfalertdialog.views.CFPushButton
+            <Button
                 android:id="@+id/ufive"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -184,7 +184,7 @@
                 app:layout_constraintTop_toTopOf="@id/guidelinehor3" />
 
 
-            <com.crowdfire.cfalertdialog.views.CFPushButton
+            <Button
                 android:id="@+id/usix"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
